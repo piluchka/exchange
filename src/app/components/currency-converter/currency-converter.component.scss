@@ -1,0 +1,56 @@
+@use "sass:math";
+@import "../../../assets/styles/functions";
+
+.converter {
+  padding-top: toREM(70);
+  &__container {
+  }
+
+  &__title {
+    font-size: toREM(26);
+    font-weight: 800;
+
+    &:not(:last-child) {
+      margin-bottom: toREM(20);
+    }
+  }
+
+  &__body {
+    background-color: #fff;
+    padding: toREM(50);
+  }
+
+  &__form {
+  }
+}
+.form-converter {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: toREM(20);
+  row-gap: toREM(10);
+
+  &__item {
+  }
+}
+.currency {
+  display: flex;
+  align-items: center;
+  border: toREM(1) solid black;
+  padding: toREM(20);
+
+  &:focus-within {
+    border: toREM(1) solid rgb(15, 201, 15);
+  }
+
+  &__input {
+    padding: toREM(10);
+    font-size: toREM(30);
+    text-align: center;
+    outline: none;
+  }
+
+  &__select {
+    height: 100%;
+    font-size: toREM(20);
+  }
+}

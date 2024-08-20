@@ -1,1 +1,39 @@
-<p>currency-converter works!</p>
+<div class="converter">
+  <div class="converter__container">
+    <div class="converter__body">
+      <h3 class="converter__title">Currency Converter</h3>
+      <!-- ?Data update time is possible to be added -->
+
+      <form class="converter__form form-converter" [formGroup]="converterForm">
+        <div class="form-converter__item currency">
+          <input
+            formControlName="firstAmount"
+            type="number"
+            name="firstCurrency"
+            id="firstCurrency"
+            class="currency__input"
+          />
+          <select class="currency__select" formControlName="firstCurrency">
+            @for (currency of currencies; track $index) {
+            <option [value]="currency">{{ currency }}</option>
+            }
+          </select>
+        </div>
+        <div class="form-converter__item currency">
+          <input
+            formControlName="secondAmount"
+            type="number"
+            name="secondCurrency"
+            id="secondCurrency"
+            class="currency__input"
+          />
+          <select class="currency__select" formControlName="secondCurrency">
+            @for (currency of currencies; track $index) {
+            <option [value]="currency">{{ currency }}</option>
+            }
+          </select>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
