@@ -2,11 +2,15 @@
 @import "../../../assets/styles/functions";
 
 .exchange {
+  background-color: #fff;
+  border-bottom: toREM(2) solid rgb(15, 201, 15);
   &__container {
     min-height: toREM(70);
     display: flex;
-    justify-content: space-between;
+
+    gap: toREM(20);
     align-items: center;
+    padding: toREM(20) toREM(20);
   }
 
   &__logo {
@@ -14,18 +18,29 @@
   }
 
   &__currency {
+    flex: 1;
   }
 }
 .currency {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: toREM(5);
+  flex-wrap: wrap;
+
   &__title {
+    font-size: toREM(20);
   }
 
   &__body {
+    display: flex;
+    gap: toREM(10);
+    flex-wrap: wrap;
   }
 
   &__card {
+    p {
+      font-size: toREM(20);
+    }
   }
 }
