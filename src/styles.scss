@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import "assets/styles/_reset.scss";
+@import "assets/styles/_functions.scss";
+@import "assets/styles/_fonts.scss";
+
+[class*="__container"] {
+  max-width: toREM(1230);
+  margin: 0 auto;
+  padding: 0 toREM(15);
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #dbdbdb;
+}
