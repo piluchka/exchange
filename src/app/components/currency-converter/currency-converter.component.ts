@@ -96,7 +96,13 @@ export class CurrencyConverterComponent implements OnInit, OnDestroy {
       ?.valueChanges.subscribe((value) => {
         const firstAmount = this.converterForm.get('firstAmount')?.value;
         const secondCurrency = this.converterForm.get('secondCurrency')?.value;
-        this.updateValue(firstAmount, value, secondCurrency, 'secondAmount');
+        this.updateValue(
+          firstAmount,
+          value,
+          secondCurrency,
+          'secondAmount',
+          true
+        );
       });
     this.subscriptions.add(firstCurrencySub);
 
@@ -105,7 +111,13 @@ export class CurrencyConverterComponent implements OnInit, OnDestroy {
       ?.valueChanges.subscribe((value) => {
         const secondAmount = this.converterForm.get('secondAmount')?.value;
         const firstCurrency = this.converterForm.get('firstCurrency')?.value;
-        this.updateValue(secondAmount, value, firstCurrency, 'firstAmount');
+        this.updateValue(
+          secondAmount,
+          value,
+          firstCurrency,
+          'firstAmount',
+          true
+        );
       });
     this.subscriptions.add(secondCurrencySub);
   }
@@ -114,14 +126,18 @@ export class CurrencyConverterComponent implements OnInit, OnDestroy {
     amount: number,
     firstCurrency: string,
     secondCurrency: string,
-    formKey: 'secondAmount' | 'firstAmount'
+    formKey: 'secondAmount' | 'firstAmount',
+    isGoingToPreventEvent: boolean = false
   ) {
     this.currencyService
       .getPairConversionValue(firstCurrency, secondCurrency)
       .pipe(take(1))
       .subscribe((rate) => {
         const result = amount * rate;
-        this.converterForm.patchValue({ [formKey]: result.toFixed(2) });
+        this.converterForm.patchValue(
+          { [formKey]: result.toFixed(2) },
+          { emitEvent: !isGoingToPreventEvent }
+        );
       });
   }
 }
