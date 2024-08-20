@@ -121,7 +121,7 @@ export class CurrencyConverterComponent implements OnInit, OnDestroy {
       .pipe(take(1))
       .subscribe((rate) => {
         const result = amount * rate;
-        this.converterForm.patchValue({ [formKey]: Math.round(result) });
+        this.converterForm.patchValue({ [formKey]: result.toFixed(2) });
       });
   }
 }

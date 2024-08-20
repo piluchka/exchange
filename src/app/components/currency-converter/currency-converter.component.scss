@@ -34,12 +34,22 @@
 }
 .currency {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: toREM(20);
   border: toREM(1) solid black;
   padding: toREM(20);
 
   &:focus-within {
     border: toREM(1) solid rgb(15, 201, 15);
+  }
+
+  &__text {
+    font-size: toREM(20);
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
   }
 
   &__input {

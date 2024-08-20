@@ -6,32 +6,38 @@
 
       <form class="converter__form form-converter" [formGroup]="converterForm">
         <div class="form-converter__item currency">
-          <input
-            formControlName="firstAmount"
-            type="number"
-            name="firstCurrency"
-            id="firstCurrency"
-            class="currency__input"
-          />
-          <select class="currency__select" formControlName="firstCurrency">
-            @for (currency of currencies; track $index) {
-            <option [value]="currency">{{ currency }}</option>
-            }
-          </select>
+          <p class="currency__text">I've got</p>
+          <div class="currency__body">
+            <input
+              formControlName="firstAmount"
+              type="number"
+              name="firstCurrency"
+              id="firstCurrency"
+              class="currency__input"
+            />
+            <select class="currency__select" formControlName="firstCurrency">
+              @for (currency of currencies; track $index) {
+              <option [value]="currency">{{ currency }}</option>
+              }
+            </select>
+          </div>
         </div>
         <div class="form-converter__item currency">
-          <input
-            formControlName="secondAmount"
-            type="number"
-            name="secondCurrency"
-            id="secondCurrency"
-            class="currency__input"
-          />
-          <select class="currency__select" formControlName="secondCurrency">
-            @for (currency of currencies; track $index) {
-            <option [value]="currency">{{ currency }}</option>
-            }
-          </select>
+          <p class="currency__text">I'll receive</p>
+          <div class="currency__body">
+            <input
+              formControlName="secondAmount"
+              type="number"
+              name="secondCurrency"
+              id="secondCurrency"
+              class="currency__input"
+            />
+            <select class="currency__select" formControlName="secondCurrency">
+              @for (currency of currencies; track $index) {
+              <option [value]="currency">{{ currency }}</option>
+              }
+            </select>
+          </div>
         </div>
       </form>
     </div>
