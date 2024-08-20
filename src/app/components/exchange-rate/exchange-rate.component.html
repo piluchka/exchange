@@ -4,12 +4,12 @@
     <div class="exchange__currency currency">
       <h4 class="currency__title">Current exchange rate (UAH)</h4>
       <div class="currency__body">
+        @if (exchangeForUAH) { @for (currency of getCurrencyNames(); track
+        $index) {
         <div class="currency__card">
-          <p>USD {{ exchangeForUAH["USD"] }}</p>
+          <p>{{ currency }} {{ exchangeForUAH[currency] }}</p>
         </div>
-        <div class="currency__card">
-          <p>EUR {{ exchangeForUAH["EUR"] }}</p>
-        </div>
+        } }
       </div>
     </div>
   </div>
