@@ -10,11 +10,23 @@
 
     gap: toREM(20);
     align-items: center;
-    padding: toREM(20) toREM(20);
+    padding: toREM(20);
+
+    @media (max-width: toEM(768.99)) {
+      padding: toREM(10);
+    }
+
+    @media (max-width: toEM(525.99)) {
+      flex-direction: column;
+      gap: toREM(10);
+    }
   }
 
   &__logo {
     font-size: toREM(36);
+    @media (max-width: toEM(768.99)) {
+      font-size: toREM(26);
+    }
   }
 
   &__currency {
@@ -25,22 +37,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: toREM(5);
+  column-gap: toREM(5);
+  row-gap: toREM(10);
   flex-wrap: wrap;
 
   &__title {
     font-size: toREM(20);
+    @media (max-width: toEM(16)) {
+    }
   }
 
   &__body {
     display: flex;
-    gap: toREM(10);
+    column-gap: toREM(10);
+    row-gap: toREM(5);
     flex-wrap: wrap;
   }
 
   &__card {
     p {
       font-size: toREM(20);
+
+      @media (max-width: toEM(768.99)) {
+        font-size: toREM(18);
+      }
     }
   }
 }
+
+// Media
