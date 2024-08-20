@@ -43,8 +43,6 @@
 
   &__title {
     font-size: toREM(20);
-    @media (max-width: toEM(16)) {
-    }
   }
 
   &__body {
@@ -52,6 +50,11 @@
     column-gap: toREM(10);
     row-gap: toREM(5);
     flex-wrap: wrap;
+
+    @media (max-width: toEM(525.99)) {
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   &__card {
@@ -64,5 +67,3 @@
     }
   }
 }
-
-// Media

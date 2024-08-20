@@ -7,7 +7,7 @@
         @if (exchangeForUAH) { @for (currency of getCurrencyNames(); track
         $index) {
         <div class="currency__card">
-          <p>{{ currency }} {{ exchangeForUAH[currency] }}</p>
+          <p>{{ currency }} {{ exchangeForUAH[currency].toFixed(2) }}</p>
         </div>
         } }
       </div>
