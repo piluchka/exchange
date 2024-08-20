@@ -23,7 +23,6 @@ export class CurrencyConverterComponent implements OnInit, OnDestroy {
   subscriptions: Subscription = new Subscription();
 
   private isUpdatingValue: boolean = false;
-  private isUpdatingCurrency: boolean = false;
 
   constructor(
     private currencyService: CurrencyService,
@@ -52,12 +51,11 @@ export class CurrencyConverterComponent implements OnInit, OnDestroy {
       .pipe(take(1))
       .subscribe((data) => {
         this.currencies = data;
-        console.log(this.currencies);
       });
   }
 
   subscribeToUpdates() {
-    const firstSub = this.converterForm
+    const firstAmountSub = this.converterForm
       .get('firstAmount')
       ?.valueChanges.subscribe((value) => {
         if (!this.isUpdatingValue) {
@@ -72,9 +70,9 @@ export class CurrencyConverterComponent implements OnInit, OnDestroy {
           this.isUpdatingValue = false;
         }
       });
-    this.subscriptions.add(firstSub);
+    this.subscriptions.add(firstAmountSub);
 
-    const secondSub = this.converterForm
+    const secondAmountSub = this.converterForm
       .get('secondAmount')
       ?.valueChanges.subscribe((value) => {
         if (!this.isUpdatingValue) {
@@ -89,7 +87,7 @@ export class CurrencyConverterComponent implements OnInit, OnDestroy {
           this.isUpdatingValue = false;
         }
       });
-    this.subscriptions.add(secondSub);
+    this.subscriptions.add(secondAmountSub);
 
     const firstCurrencySub = this.converterForm
       .get('firstCurrency')

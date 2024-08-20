@@ -28,7 +28,6 @@ export class ExchangeRateComponent implements OnInit {
       )
       .subscribe((info) => {
         this.exchangeForUAH[currency.toUpperCase()] = info.UAH;
-        console.log(this.exchangeForUAH);
       });
   }
 
